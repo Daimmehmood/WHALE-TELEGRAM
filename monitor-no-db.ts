@@ -11,75 +11,7 @@ import { SocialMediaFormatter, FormattedSocialDisplay } from './socialMediaForma
 
 dotenv.config();
 
-// Add this to the top of your monitor-no-db.ts file for production compatibility
 
-// Production environment setup
-function setupProductionEnvironment() {
-  // Ensure logs directory exists
-  const fs = require('fs');
-  const path = require('path');
-  
-  const logsDir = path.join(process.cwd(), 'logs');
-  if (!fs.existsSync(logsDir)) {
-    fs.mkdirSync(logsDir, { recursive: true });
-  }
-  
-  // Create default manualWallets.json if it doesn't exist
-  const walletsConfigPath = path.join(process.cwd(), 'manualWallets.json');
-  if (!fs.existsSync(walletsConfigPath)) {
-    const defaultWalletsConfig = {
-      "manualWallets": [
-        {
-          "address": "ge5x7NkqMJEugRs5RtPYiZ3D32JcwRSGFdd2uTBSUGL",
-          "name": "Sample Whale #1",
-          "description": "Production sample wallet",
-          "winrate": "68.4%",
-          "enabled": true
-        },
-        {
-          "address": "DsEanqaUqQThFbX4AjMF7XVBeJ4BCsotEtTWgqfhDZ2H",
-          "name": "Sample Whale #2", 
-          "description": "Production sample wallet",
-          "winrate": "76.3%",
-          "enabled": true
-        }
-      ],
-      "settings": {
-        "minWhalesForConsensus": parseInt(process.env.MIN_WHALES_FOR_CONSENSUS || "2"),
-        "minPurchaseUsd": parseInt(process.env.MIN_PURCHASE_USD || "50"),
-        "checkIntervalSeconds": parseInt(process.env.CHECK_INTERVAL_SECONDS || "10"),
-        "enableQualifiedWallets": process.env.ENABLE_QUALIFIED_WALLETS === "true",
-        "enableManualWallets": process.env.ENABLE_MANUAL_WALLETS !== "false",
-        "enableSocialAnalysis": process.env.ENABLE_SOCIAL_ANALYSIS !== "false",
-        "socialAnalysisDelay": parseInt(process.env.SOCIAL_ANALYSIS_DELAY || "2000")
-      }
-    };
-    
-    fs.writeFileSync(walletsConfigPath, JSON.stringify(defaultWalletsConfig, null, 2));
-    console.log('✅ Created production manualWallets.json with sample wallets');
-  }
-  
-  // Create default telegram.json if it doesn't exist
-  const telegramConfigPath = path.join(process.cwd(), 'telegram.json');
-  if (!fs.existsSync(telegramConfigPath)) {
-    const defaultTelegramConfig = {
-      "botToken": process.env.TELEGRAM_BOT_TOKEN || "",
-      "chatId": process.env.TELEGRAM_CHAT_ID || "",
-      "enabled": process.env.TELEGRAM_ENABLED === "true",
-      "sendIndividualAlerts": false,
-      "sendConsensusAlerts": true,
-      "minConsensusWhales": parseInt(process.env.MIN_WHALES_FOR_CONSENSUS || "2")
-    };
-    
-    fs.writeFileSync(telegramConfigPath, JSON.stringify(defaultTelegramConfig, null, 2));
-    console.log('✅ Created production telegram.json from environment variables');
-  }
-}
-
-// Call this at the start of your monitor
-if (process.env.NODE_ENV === 'production') {
-  setupProductionEnvironment();
-}
 
 interface ManualWallet {
   address: string;

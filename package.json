@@ -2,23 +2,19 @@
   "name": "solana-whale-tracker",
   "version": "1.0.0",
   "description": "Real-time Solana whale wallet tracker and monitoring system",
-  "main": "dist/monitor-no-db.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/monitor-no-db.js",
-    "monitor-no-db": "node dist/monitor-no-db.js",
-    "dev": "ts-node src/monitor-no-db.ts",
-    "test": "node dist/monitor-no-db.js test",
-    "test-social": "node dist/monitor-no-db.js test-social",
-    "config-social": "node dist/monitor-no-db.js config-social",
-    "clear-cache": "node dist/monitor-no-db.js clear-cache",
-    "cache-stats": "node dist/monitor-no-db.js cache-stats",
-    "help": "node dist/monitor-no-db.js help",
-    "postinstall": "npm run build"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "scrape": "ts-node src/scraper.ts",
+    "monitor": "ts-node src/monitor.ts",
+    "wallet-manager": "ts-node src/walletManager.ts",
+    "test-wallet": "ts-node src/monitor.ts test",
+    "track-meme": "ts-node src/simpleMemeTracker.ts",
+    "monitor-no-db": "ts-node src/monitor-no-db.ts",
+    "test-wallet-no-db": "ts-node src/monitor-no-db.ts test",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "axios": "^1.9.0",
@@ -39,5 +35,13 @@
     "@types/node-cron": "^3.0.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
-  }
+  },
+  "keywords": [
+    "solana",
+    "whale",
+    "tracker",
+    "cryptocurrency",
+    "blockchain",
+    "monitoring"
+  ]
 }
