@@ -1,0 +1,17 @@
+{
+ "botToken": "7654894818:AAHzY4bCE2ctr7FVhZ79qX4Z8Fs093ttC5U",
+  "chatId": "-1002637835352",
+  "enabled": true,
+  "sendIndividualAlerts": false,
+  "sendConsensusAlerts": true,
+  "minConsensusWhales": 2,
+  "setup_instructions": {
+    "step1": "Create bot with @BotFather on Telegram",
+    "step2": "Get bot token from @BotFather",
+    "step3": "Add bot to your group/channel",
+    "step4": "Get chat ID using @userinfobot or API",
+    "step5": "Replace YOUR_BOT_TOKEN_HERE and YOUR_CHAT_ID_HERE",
+    "step6": "Set enabled: true",
+    "note": "Chat ID format: -1001234567890 (for groups/channels)"
+  }
+}

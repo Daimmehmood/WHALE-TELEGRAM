@@ -1,0 +1,55 @@
+#### WALLET MANAGEMENT ##### Add a wallet
+##npm run wallet-manager add <public_key> "<wallet_name>" "<wallet_description>"
+
+# List all wallets
+##npm run wallet-manager list
+
+# Remove wallet by name or public key
+##npm run wallet-manager remove "<wallet_name>" | <public_key>
+
+# Update settings: $<min_purchase> min purchase, <interval>sec interval, $<sol_price> SOL price
+##npm run wallet-manager settings <min_purchase> <interval> <sol_price>
+
+# Enable/disable wallets
+##npm run wallet-manager enable "<wallet_name>" | <public_key>
+##npm run wallet-manager disable "<wallet_name>" | <public_key>
+
+# Advanced features
+##npm run wallet-manager validate
+##npm run wallet-manager export <backup_file>
+##npm run wallet-manager import <backup_file>
+
+# Show help
+##npm run wallet-manager help
+
+
+# Add a wallet
+##npm run wallet-manager add 4BdKaxN8G6ka4GYtQQWk4G4dZRUTX2vQH9GcXdBREFUk "Whale #1" "High performance trader"
+
+# List all wallets
+##npm run wallet-manager list
+
+# Remove wallet by name
+##npm run wallet-manager remove "Whale #1"
+
+# Update settings: $100 min purchase, 60sec interval, $250 SOL price
+##npm run wallet-manager settings 100 60 250
+
+# Enable/disable wallets
+##npm run wallet-manager enable "Whale #1"
+##npm run wallet-manager disable 4BdKaxN8G6ka4GYtQQWk4G4dZRUTX2vQH9GcXdBREFUk
+
+# Advanced features
+##npm run wallet-manager validate
+##npm run wallet-manager export my-backup.json
+##npm run wallet-manager import wallet-backup.json
+
+# Show help
+##npm run wallet-manager help
+
+
+
+
+
+
+
